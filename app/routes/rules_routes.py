@@ -5,10 +5,10 @@ import os
 
 router = APIRouter()
 
-RULES_FILE = "app/config/rules.json"
-
 # ✅ Make path absolute for reliability
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+RULES_FILE = os.path.join(BASE_DIR, "config", "rules.json")
+
 
 # 📦 Request model for updating rules
 class RulesUpdate(BaseModel):
