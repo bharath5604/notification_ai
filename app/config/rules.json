@@ -1,0 +1,15 @@
+{
+    "business_hours": {
+        "start": 9,
+        "end": 24
+    },
+    "allowed_channels": [
+        "push",
+        "sms",
+        "email"
+    ],
+    "fatigue": {
+        "max_notifications": 15,
+        "cooldown_minutes": 2
+    }
+}

@@ -1,0 +1,152 @@
+# 🚀 Smart Notification Decision Engine
+
+## 📌 Project Overview
+
+The **Smart Notification Decision Engine** is a rule-based system designed to intelligently decide whether a notification should be sent immediately, deferred, or blocked.
+
+It prevents notification overload, eliminates duplicates, respects business rules, and ensures reliable delivery using fail-safe mechanisms.
+
+---
+
+## 🎯 Key Features
+
+### ✅ Rule-Based Decision Making
+
+* Business hours enforcement
+* Channel validation
+* Expiry checks
+* Priority handling
+
+### ✅ Near-Duplicate Detection
+
+Uses similarity matching to prevent sending similar notifications repeatedly.
+
+### ✅ Alert Fatigue Protection
+
+Limits notifications per user and enforces cooldown periods.
+
+### ✅ Configurable Rules
+
+Rules are stored in a central configuration and can be modified without code changes.
+
+### ✅ Fail-Safe Mode
+
+Ensures system stability even if errors occur.
+
+### ✅ Metrics Tracking
+
+Tracks:
+
+* Sent notifications
+* Blocked notifications
+* Failed attempts
+
+### ✅ REST API Endpoints
+
+| Endpoint         | Description               |
+| ---------------- | ------------------------- |
+| POST /api/notify | Send notification request |
+| GET /api/metrics | View system metrics       |
+| GET /api/rules   | View active rules         |
+
+---
+
+## 🏗️ Architecture
+
+The system follows a modular architecture:
+
+```
+Client → API Routes → Decision Engine → Services → Database/Config
+```
+
+### Components
+
+* Notification Routes — API endpoints
+* Decision Engine — Core logic
+* Rule Service — Business rules
+* Deduplication Service — Duplicate detection
+* Fatigue Service — User protection
+* Metrics Service — Monitoring
+* Fail-Safe Service — Error handling
+
+---
+
+## ⚙️ Rules Configuration
+
+```
+{
+  "business_hours": { "start": 9, "end": 24 },
+  "allowed_channels": ["push", "sms", "email"],
+  "fatigue": { "max_notifications": 5, "cooldown_minutes": 30 }
+}
+```
+
+---
+
+## ▶️ How to Run
+
+### 1️⃣ Install Dependencies
+
+```
+pip install -r requirements.txt
+```
+
+### 2️⃣ Start Server
+
+```
+uvicorn app.main:app --reload
+```
+
+### 3️⃣ Open API Docs
+
+```
+http://127.0.0.1:8000/docs
+```
+
+---
+
+## 🧪 Sample Request
+
+```
+POST /api/notify
+```
+
+```json
+{
+  "user_id": "user1",
+  "message": "Your order has shipped",
+  "channel": "email"
+}
+```
+
+---
+
+## 📊 Metrics Example
+
+```
+GET /api/metrics
+```
+
+```json
+{
+  "sent": 5,
+  "blocked": 2,
+  "failed": 0
+}
+```
+
+---
+
+## 🏆 Use Cases
+
+* E-commerce notifications
+* Banking alerts
+* Marketing campaigns
+* System alerts
+* Messaging platforms
+
+---
+
+## 📌 Conclusion
+
+This system demonstrates how intelligent rule-based decision engines can improve user experience, reduce notification spam, and ensure reliable communication.
