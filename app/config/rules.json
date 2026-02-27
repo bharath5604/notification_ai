@@ -1,7 +1,7 @@
 {
     "business_hours": {
-        "start": 9,
-        "end": 24
+        "start": 8,
+        "end": 20
     },
     "allowed_channels": [
         "push",
@@ -9,7 +9,7 @@
         "email"
     ],
     "fatigue": {
-        "max_notifications": 15,
-        "cooldown_minutes": 2
+        "max_notifications": 10,
+        "cooldown_minutes": 10
     }
 }

@@ -9,17 +9,14 @@ SIMILARITY_THRESHOLD = 0.85
 DUPLICATE_WINDOW_MINUTES = 60
 
 
-def is_duplicate(new_message):
+def is_duplicate(new_message, user_id):
     """
-    Checks if a similar notification was sent recently.
-    Uses DB instead of memory for persistence.
+    Checks if a similar notification was sent recently for the SAME user.
     """
-
     time_limit = datetime.utcnow() - timedelta(minutes=DUPLICATE_WINDOW_MINUTES)
 
-    # Fetch recent notifications
     recent_notifications = notification_log_collection.find(
-        {"timestamp": {"$gte": time_limit}}
+        {"timestamp": {"$gte": time_limit}, "user_id": user_id}
     )
 
     for notif in recent_notifications:

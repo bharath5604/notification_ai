@@ -54,7 +54,7 @@ def decide(notification):
             }
 
         # 4️⃣ Duplicate detection
-        if is_duplicate(notification.message):
+        if is_duplicate(notification.message, notification.user_id):
             update_metric("duplicates")
             return {
                 "decision": "NEVER",
