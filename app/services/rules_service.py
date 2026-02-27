@@ -5,7 +5,7 @@ from app.config import RULES
 
 
 # ⭐ Return full rules (needed by fatigue service)
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 RULES_PATH = os.path.join(BASE_DIR, "config", "rules.json")
 
 def get_rules():
