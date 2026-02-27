@@ -81,6 +81,7 @@ Client → API Routes → Decision Engine → Services → Database/Config
 }
 ```
 
+The above config is used to post rules from the site also.
 ---
 
 ## ▶️ How to Run
